@@ -36,8 +36,16 @@ public class die : MonoBehaviour
     }
     void Update()
     {
-        di = Time.time - Time.time % 0.01f - globaltime;
-        time.text = di.ToString();
+        if(transform.position.x > -0.12 && transform.position.x < 0.07 && transform.position.y<4)
+        {
+            globaltime = Time.time;
+        }
+        di = Time.time  - globaltime;
+        if (di > 0)
+        {
+            time.text = di.ToString();
+        }
+        else time.text = 0.ToString();
     }
 
 }
